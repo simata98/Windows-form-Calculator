@@ -1,0 +1,213 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:Calculator" 
+        mc:Ignorable="d" 
+        Title="정형이의 윈도우 계산기" MinHeight="550" MinWidth="300" Width="400" Height="550">
+    <DockPanel VerticalAlignment="Stretch">
+        <Grid Height="100" DockPanel.Dock="Top">
+            <TextBox Name="txtExp" FontSize="16" HorizontalContentAlignment="Right" Margin="15,10,15,10" BorderThickness="0" Background="WhiteSmoke"></TextBox>
+            <TextBox Name="txtResult" FontWeight="Bold" FontSize="36" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Margin="15,35,15,25" BorderThickness="0" Background="WhiteSmoke">0</TextBox>
+        </Grid>
+        <Grid Height="50" Background="LightGray" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnMC" Grid.Column="0" FontSize="14" BorderThickness="0" FontWeight="Bold" Background="WhiteSmoke" IsEnabled="False" Click="btnMC_Click">MC</Button>
+            <Button Name="btnMR" Grid.Column="1" FontSize="14" BorderThickness="0" FontWeight="Bold" Background="WhiteSmoke" IsEnabled="False" Click="btnMR_Click">MR</Button>
+            <Button Name="btnMPlus" Grid.Column="2" FontSize="14" BorderThickness="0" FontWeight="Bold" Background="WhiteSmoke" IsEnabled="False" Click="btnMMinus_Click">M-</Button>
+            <Button Name="btnMMinus" Grid.Column="3" FontSize="14" BorderThickness="0" FontWeight="Bold" Background="WhiteSmoke" IsEnabled="False" Click="btnMPlus_Click">M+</Button>
+            <Button Name="btnMs" Grid.Column="4" FontSize="14" BorderThickness="0" FontWeight="Bold" Background="WhiteSmoke" IsEnabled="False" Click="btnMs_Click">MS</Button>
+        </Grid>
+        <Grid MinHeight="360" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnPercent_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> %
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnSqrt_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> √
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnSqr_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> x²
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnRecip_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 1/x
+            </Button>
+            <Button Grid.Row="0" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnCE_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> CE
+            </Button>
+            <Button Grid.Row="0" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnC_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> C
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnDelete_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> ◀
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnOp_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> /
+            </Button>
+            <Button Grid.Row="2" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 7
+            </Button>
+            <Button Grid.Row="2" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 8
+            </Button>
+            <Button Grid.Row="2" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 9
+            </Button>
+            <Button Grid.Row="2" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnOp_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> x
+            </Button>
+            <Button Grid.Row="3" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 4
+            </Button>
+            <Button Grid.Row="3" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 5
+            </Button>
+            <Button Grid.Row="3" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 6
+            </Button>
+            <Button Grid.Row="3" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnOp_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> -
+            </Button>
+            <Button Grid.Row="4" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 1
+            </Button>
+            <Button Grid.Row="4" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 2
+            </Button>
+            <Button Grid.Row="4" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 3
+            </Button>
+            <Button Grid.Row="4" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnOp_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> +
+            </Button>
+            <Button Grid.Row="5" Grid.Column="0" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="btnPlusMinus_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> ±
+            </Button>
+            <Button Grid.Row="5" Grid.Column="1" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="WhiteSmoke" Click="btn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> 0
+            </Button>
+            <Button Grid.Row="5" Grid.Column="2" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Click="Dot_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> .
+            </Button>
+            <Button Grid.Row="5" Grid.Column="3" FontSize="18" BorderThickness="0" Margin="2,1,1,1" Background="#FF44B8E4" Click="Equal_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources> =
+            </Button>
+        </Grid>
+    </DockPanel>
+</Window>
